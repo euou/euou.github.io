@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>毛利率计算器</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+	成本 : <input type="number" name="cost" id="cost" value="" /><br><br>
+	销售价 : <input type="number" name="price" id="price" value="" /><br><br>
+        营业额 : <input type="number" name="yingye" id="yingye" value="" /><br><br>
+        直通车花费 : <input type="number" name="zhitong" id="zhitong" value="" /><br><br>
+        访客数 : <input type="number" name="fangke" id="fangke" value="" /><br><br>
+	<!-- 销售价-成本=毛利 --> <!-- 毛利/销售价=毛利率 -->
+	毛利：<span id="maoli"></span><br><br>
+	毛利率 :<span id="maolilv"></span><br><br>
+        保本投产比：<span id="touchan"></span><br><br>
+        投产比：<span id="ROI"></span><br><br>
+        UV价值：<span id="UV"></span><br><br>
+
+	<input type="button" name="calculation" id="calculation" value="计算" onclick="calculation()"/>&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="button" name="clearAll" id="clearAll" value="重置" onclick="clearAll()"/><br><br>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script>
+		// 计算
+		function calculation(){
+			var x = document.getElementById("cost").value;
+			var y = document.getElementById("price").value;
+                        var a = document.getElementById("yingye").value;
+                        var b = document.getElementById("zhitong").value;
+                        var c = document.getElementById("fangke").value;
+			var z = document.getElementById("maoli");
+			var sum = document.getElementById("maolilv");
+			z.innerHTML = y-x;
+			sum.innerHTML = (y-x)/y;
+                        var sum = document.getElementById("touchan");
+                        z.innerHTML = y-x;
+			sum.innerHTML = y/ (y-x);
+                        var sum = document.getElementById("ROI");
+			sum.innerHTML =a/b;
+                        var sum = document.getElementById("UV");
+			sum.innerHTML =a/c;
+
+
+		}
+		//重置
+		function clearAll(){
+			var file = document.getElementById('cost');
+			file.outerHTML = cost.outerHTML;
+			var file = document.getElementById('price');
+			file.outerHTML = price.outerHTML;
+                        var file = document.getElementById('yingye');
+			file.outerHTML = yingye.outerHTML;
+                        var file = document.getElementById('zhitong');
+			file.outerHTML = zhitong.outerHTML;
+                        var file = document.getElementById('fangke');
+			file.outerHTML = fangke.outerHTML;
+			$("#maoli").html("");
+			$("#maolilv").html("");
+                        $("#touchan").html("");
+                        $("#ROI").html("");
+                        $("#UV").html("");
+		}
+	</script>
+</body>
+</html>
+
