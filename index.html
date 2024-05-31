@@ -7,15 +7,84 @@
  
 <title>毛利率计算器</title>
 <style type="text/css">
+.body {
+	height:100%;
+	background-image:-webkit-gradient(linear, 0 0, 0 100%, from(#4E94C4), to(#EFF8FF));
+	background-image:linear-gradient(#4E94C4,#EFF8FF);
+	background-image:-moz-linear-gradient(#4E94C4,#EFF8FF);
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0, EndColorStr='#EFF8FF', StartColorStr='#4E94C4')
+}
+body,html {
+	padding:0;
+	margin:0;
+	font-family:'Helvetica Neue',Helvetica,sans-serif;
+	font-size:14px;
+	color:#517188;
+	text-align:left;
+	background-color:#EFF8FF
+}
+a {
+	text-decoration:none;
+	color:#517188
+}
+.inputArea {
+	background:#fff;
+	border:1px solid #628aa5;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-webkit-box-shadow:0 1px 5px #acaeaf inset,0px 1px 1px rgba(255,255,255,0.5);
+	box-shadow:0 1px 5px #acaeaf inset,0px 1px 1px rgba(255,255,255,0.5)
+}
+.inputLine {
+	color:#000;
+	padding:7px 10px;
+	clear:both
+}
+.inputLine:first-of-type {
+	border-bottom:1px solid #cfcfcf
+}
+.il {
+	float:left;
+	padding:5px 0
+}
+.ir {
+	overflow:hidden;
+	text-align:left;
+	padding:0
+}
+.ir input {
+	-webkit-appearance:none;
+	background:none;
+	width:99%;
+	border:0;
+	font-size:14px;
+	vertical-align:middle;
+	border:solid 1px #ccc;
+	margin:0;
+	padding:5px 0
+}
+ button {
+    padding: 10px 20px;
+    border: 1px solid #0056b3;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+
 </style>
 </head>
 <body>
-<div style='border:1px red solid;border-radius:100px;font-size:1rem;'>
-	成本 : <input type="number" name="cost" id="cost" value="" /><br><br>
-	销售价 : <input type="number" name="price" id="price" value="" /><br><br>
-        营业额 : <input type="number" name="yingye" id="yingye" value="" /><br><br>
-        直通车花费 : <input type="number" name="zhitong" id="zhitong" value="" /><br><br>
-        访客数 : <input type="number" name="fangke" id="fangke" value="" /><br><br>
+<div style='border:1px red solid;border-radius:10px;font-size:0.3rem;'>
+<div class="inputArea">
+    <div class="inputLine">
+	成本 : <br><div class="ir"><input type="number" name="cost" id="cost" value="" /><br><br></div>
+
+	销售价 :  <br><div class="ir"><input type="number" name="price" id="price" value="" /><br><br></div>
+
+        营业额 : <br> <div class="ir"><input type="number" name="yingye" id="yingye" value="" /><br><br></div>
+
+        直通车花费 :  <br><div class="ir"><input type="number" name="zhitong" id="zhitong" value="" /><br><br></div>
+
+        访客数 :  <br><div class="ir"><input type="number" name="fangke" id="fangke" value="" /><br><br></div>
 	<!-- 销售价-成本=毛利 --> <!-- 毛利/销售价=毛利率 -->
 	毛利：<span id="maoli"></span><br><br>
 	毛利率 :<span id="maolilv"></span><br><br>
@@ -23,8 +92,8 @@
         投产比：<span id="ROI"></span><br><br>
         UV价值：<span id="UV"></span><br><br>
 
-	<input type="button" name="calculation" id="calculation" value="计算" onclick="calculation()"/>&nbsp;&nbsp;&nbsp;&nbsp;
-	<input type="button" name="clearAll" id="clearAll" value="重置" onclick="clearAll()"/><br><br>
+	<div class="ir"><input type="button" name="calculation" id="calculation" value="计算" onclick="calculation()"/></div> <br>	
+       <div class="ir"><input type="button" name="clearAll" id="clearAll" value="重置" onclick="clearAll()"/></div><br>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script>
 		// 计算
@@ -66,7 +135,7 @@
                         $("#ROI").html("");
                         $("#UV").html("");
 		}
-	</script></div>
+	</script>
 <script>
  
 /*    利用js计算当前设备的DPR，动态设置在html标签上，并动态设置html的font-size，*/
@@ -227,5 +296,6 @@
     }(window, window.lib || (window.lib = {}));
  
 </script>
+</div></div></div>
 </body>
 </html>
